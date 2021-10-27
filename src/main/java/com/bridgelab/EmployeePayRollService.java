@@ -8,6 +8,10 @@ import java.util.List;
 import java.util.Scanner;
 
 public class EmployeePayRollService {
+	public EmployeePayRollService() {
+
+	}
+
 	public enum IOService {
 		CONSOLE_IO, FILE_IO, DB_IO, REST_IO
 	}
@@ -57,5 +61,11 @@ public class EmployeePayRollService {
 	public void printData(IOService ioService) {
 		if (ioService.equals(IOService.FILE_IO))
 			new EmployeePayrollFileIOService().printData();
+	}
+
+	public void readDataFromFile(IOService ioService) {
+		if (ioService.equals(IOService.CONSOLE_IO)) {
+			new EmployeePayrollFileIOService().readDataFromFile();
+		}
 	}
 }
